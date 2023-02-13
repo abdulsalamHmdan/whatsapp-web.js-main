@@ -19,8 +19,7 @@ let all = {};
 let almgmaat = ["zeed", "osamah"];
 almgmaat.forEach((x, i) => {
     const client = new Client({
-        puppeteer: { headless: false },
-        // args: ['--no-sandbox']
+        puppeteer: { headless: true,args: ['--no-sandbox'] },
         // authStrategy: new LocalAuth(),
     });
     all[x] = {
@@ -73,9 +72,13 @@ app.get('/', (req, res) => {
         res.send({status:200});
 
     } catch (error) {
-        res.send({status:404,reason:error});
+        res.send(req.params);
 
     }
+})
+app.post('/test', (req, res) => {
+    // console.log(req.params)
+    res.send(req.params);
 })
 server.listen(process.env.PORT || port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
