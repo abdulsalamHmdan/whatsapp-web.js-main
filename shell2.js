@@ -72,13 +72,13 @@ app.get('/', (req, res) => {
         res.send({status:200});
 
     } catch (error) {
-        res.send(req.params);
+        res.send(req.body);
 
     }
 })
 app.post('/test', (req, res) => {
     // console.log(req.params)
-    res.send(req.params);
+    res.send(req.body);
 })
 server.listen(process.env.PORT || port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
