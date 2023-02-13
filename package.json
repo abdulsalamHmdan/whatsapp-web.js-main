@@ -2,10 +2,11 @@
   "name": "whatsapp-web.js",
   "version": "1.19.3",
   "description": "Library for interacting with the WhatsApp Web API ",
-  "main": "./index.js",
+  "main": "shell2.js",
   "typings": "./index.d.ts",
   "scripts": {
     "test": "mocha tests --recursive --timeout 5000",
+    "start": "node shell2",
     "test-single": "mocha",
     "shell": "node --experimental-repl-await ./shell.js",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
