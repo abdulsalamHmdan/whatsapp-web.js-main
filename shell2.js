@@ -19,7 +19,7 @@ let all = {};
 let almgmaat = ["zeed", "osamah"];
 almgmaat.forEach((x, i) => {
     const client = new Client({
-        puppeteer: { headless: true,args: ['--no-sandbox'] },
+        puppeteer: { headless: true, args: ['--no-sandbox'] },
         // authStrategy: new LocalAuth(),
     });
     all[x] = {
@@ -74,8 +74,14 @@ app.post('/qr', (req, res) => {
 })
 app.post('/send', (req, res) => {
     try {
-        all[req.body.mgm3].client.sendMessage(req.body.number + "@c.us", req.body.msg);
-        res.send("done");
+        if (almgmaat.includes(req.body.mgm3)) {
+            if (all[req.body.mgm3].ready) {
+                all[req.body.mgm3].client.sendMessage(req.body.number + "@c.us", req.body.msg);
+                res.send("send");
+            }
+
+            res.send("not mgm3");
+        }
 
     } catch (error) {
         res.send("no result");
@@ -83,7 +89,10 @@ app.post('/send', (req, res) => {
     }
 })
 app.post('/test', (req, res) => {
-    // console.log(req.params)
+    if (almgmaat.includes(req.body.mgm3)) {
+        console.log(req.body.mgm3)
+
+    }
     res.send(req.body);
 })
 server.listen(process.env.PORT || port, () => {
