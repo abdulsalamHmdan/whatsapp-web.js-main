@@ -8,7 +8,7 @@ function getqr(mgm3) {
             console.log("err")
         },
         success: function (qr) {
-            console.log("ok")
+            console.log(qr)
             document.querySelector("." + mgm3).innerHTML = "";
             var qrcode = new QRCode(document.querySelector("." + mgm3), {
                 text: qr,

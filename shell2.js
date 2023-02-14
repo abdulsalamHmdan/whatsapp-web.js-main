@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
     res.sendFile('public/qrRead.html', { root: '.' })
 })
 app.post('/qr', (req, res) => {
-    console.log(req.body.mgm3);
+    console.log(all[req.body.mgm3].qr);
     res.send(all[req.body.mgm3].qr);
 })
 app.post('/send', (req, res) => {
