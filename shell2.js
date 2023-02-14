@@ -48,7 +48,7 @@ almgmaat.forEach((x, i) => {
 
     all[x].client.on('ready', () => {
         all[x].ready = true
-        console.log(all[x])
+        console.log("ready")
         // client.sendMessage("966507499583@c.us", 'from' + i);
         // const shell = repl.start('wwebjs> ');
         // shell.context.client = client;
@@ -66,13 +66,19 @@ almgmaat.forEach((x, i) => {
 })
 
 app.get('/', (req, res) => {
-    console.log(req.params)
+    res.sendFile('public/qrRead.html', { root: '.' })
+})
+app.post('/qr', (req, res) => {
+    console.log(req.body.mgm3);
+    res.send(all[req.body.mgm3].qr);
+})
+app.post('/send', (req, res) => {
     try {
         all[req.body.mgm3].client.sendMessage(req.body.number + "@c.us", req.body.msg);
-        res.send({status:200});
+        res.send("done");
 
     } catch (error) {
-        res.send(req.body);
+        res.send("no result");
 
     }
 })

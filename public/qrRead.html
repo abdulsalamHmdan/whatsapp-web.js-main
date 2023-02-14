@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js 'unsafe-inline' 'unsafe-eval';** "> -->
+    <style>
+        body {
+            display: grid;
+            place-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <div class="zeed"></div>
+        <button onclick="getqr('zeed')">تحديث</button>
+    </div>
+    <div>
+        <div class="osamah"></div>
+        <button onclick="getqr('osamah')">تحديث</button>
+    </div>
+</body>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script> -->
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/qrcode.js"></script>
+<script src="/qrRead.js"></script>
+
+</html>
